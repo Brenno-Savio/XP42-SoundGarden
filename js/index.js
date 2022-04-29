@@ -41,9 +41,6 @@ let resquestOptions = {
           const aElement = document.createElement('a');
           aElement.innerText = "reserver ingresso";
           aElement.classList.add('btn', 'btn-primary');
-          
-  
-          // localStorage.setItem(nameData);
   
           aElement.addEventListener("click", () => {
               const aElementId = JSON.stringify(event._id);
@@ -130,34 +127,33 @@ let resquestOptions = {
         
       enter.preventDefault();
   
-        const modalObj = new FormData(modalReserva);
-        // const nameCommers = '"' + modalObj.get('name') + '"';
+      const modalObj = new FormData(modalReserva);
+
   
-        const idNoQuotation = id.replaceAll('"','');
-        console.log(idNoQuotation)
+      const idNoQuotation = id.replaceAll('"','');
+
   
-        const bodyModal = {
-            "owner_name": modalObj.get('name'),
-            "owner_email": modalObj.get('email'),
-            "number_tickets": '1',
-            "event_id": idNoQuotation
-        }
+      const bodyModal = {
+          "owner_name": modalObj.get('name'),
+          "owner_email": modalObj.get('email'),
+          "number_tickets": '1',
+          "event_id": idNoQuotation
+      }
   
-        console.log(bodyModal)
+        
   
-        fetch("https://xp41-soundgarden-api.herokuapp.com/bookings", {
-            method: 'POST',
-            headers: {
-                "method": "POST",
-                "headers": { "Content-Type": "application/JSON" },
-                "body": JSON.stringify(bodyModal)
-            },
-            body: JSON.stringify(bodyModal)
-        })
-        .then(response => response.text())
-        .then( result => console.log(result))
-        .catch( error => console.error(error)
-        );
+      fetch("https://xp41-soundgarden-api.herokuapp.com/bookings", {
+      method: "POST",
+      headers: {
+          "Content-Type": "application/json"
+      },
+      body: JSON.stringify(bodyModal)
+      })
+      .then(() => {
+        alert('Sua reserva foi feita com sucesso!')
+      }).catch(() => {
+        alert('ocorreu um erro ao fazer sua reserva')
+      })
     })
   
   }

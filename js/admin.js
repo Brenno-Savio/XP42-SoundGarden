@@ -145,6 +145,17 @@ const showModal = async (dataRequisition) => {
     })
 
 }
+
+// const modalAsideBtn = document.querySelector(".modal-button");
+// const asideModal = document.getElementById("modal-aside");
+
+// console.log(asideModal)
+
+// modalAsideBtn.addEventListener('click', () => {
+//     asideModal.style.display = 'block !important';
+// });
+
+
     
 
 

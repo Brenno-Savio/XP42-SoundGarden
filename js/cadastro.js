@@ -26,7 +26,7 @@ formCadastro.addEventListener("submit", e => {
          "headers": { "Content-Type": "application/JSON" },
          "body": JSON.stringify(body)
     }).then(() => {
-        alert('Seu Evento foi criado com sucesso!')
+        alert('Seu evento foi criado com sucesso!')
         window.location.replace("admin.html")
     }).catch(() => {
         alert('ocorreu um erro ao criar seu evento')

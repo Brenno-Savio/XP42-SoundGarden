@@ -127,7 +127,6 @@ const showModal = async (title, id, callback) => {
     enter.preventDefault();
 
       const modalObj = new FormData(modalReserva);
-      // const nameCommers = '"' + modalObj.get('name') + '"';
 
       const idNoQuotation = id.replaceAll('"','');
       console.log(idNoQuotation)
@@ -142,18 +141,16 @@ const showModal = async (title, id, callback) => {
       console.log(bodyModal)
 
       fetch("https://xp41-soundgarden-api.herokuapp.com/bookings", {
-          method: 'POST',
-          headers: {
-              "method": "POST",
-              "headers": { "Content-Type": "application/JSON" },
-              "body": JSON.stringify(bodyModal)
-          },
-          body: JSON.stringify(bodyModal)
+        method: "POST",
+        headers: {
+            "Content-Type": "application/json"
+        },
+        body: JSON.stringify(bodyModal)
+      }).then(() => {
+          alert('Sua reserva foi feita com sucesso!')
+      }).catch(() => {
+          alert('ocorreu um erro ao fazer sua reserva')
       })
-      .then(response => response.text())
-      .then( result => console.log(result))
-      .catch( error => console.error(error)
-      );
   })
 
 }

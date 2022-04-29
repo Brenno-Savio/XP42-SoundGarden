@@ -48,3 +48,55 @@ footer nav ul{
 footer nav ul li  {
     padding: 10px;
 }
+
+@media only screen and (max-width: 768px) {
+    .nav-link.active {
+        width: 80%;
+        font-size: 15px;
+    }
+    .link-dark{
+        margin-left: -10%;
+        font-size: 15px;
+    }
+    .px-5{
+        padding-right: 0.1rem!important;
+        padding-left: 0.1rem!important;
+    }
+
+}
+
+.modal-button {
+    display: none;
+}
+
+.close-button-aside {
+    display: none !important;
+}
+
+@media only screen and (max-width: 360px) {
+    .col-2 {
+        width: 35%;
+        padding: 0;
+        margin: 0;
+    }
+    .modal-aside {
+        display: none !important;
+        position: fixed;
+        z-index: 1;
+        overflow: auto;
+    }
+    main {
+        position: flex;
+    }
+    .modal-button {
+        display: block !important;
+        background-color: #C2185B;
+        color: #fff;
+    }
+    .close-button-aside {
+        display: block !important;
+        background-color: #C2185B;
+        color: #fff;
+        text-align: center;
+    }
+}
