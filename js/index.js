@@ -126,18 +126,18 @@ let resquestOptions = {
     modalReserva.addEventListener('submit', (enter) => {
         
       enter.preventDefault();
+
+      let myModalEl = document.getElementById('modalSubscriptionForm');
+      let modal = bootstrap.Modal.getInstance(myModalEl);
+      modal.hide();
   
       const modalObj = new FormData(modalReserva);
-
-  
-      const idNoQuotation = id.replaceAll('"','');
-
-  
+      
       const bodyModal = {
           "owner_name": modalObj.get('name'),
           "owner_email": modalObj.get('email'),
           "number_tickets": '1',
-          "event_id": idNoQuotation
+          "event_id": id
       }
   
         

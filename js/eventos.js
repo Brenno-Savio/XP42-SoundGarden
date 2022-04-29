@@ -57,7 +57,7 @@ const createElementsFromEvents = async (data) => {
     });
 }
 
-var modalWrap = null;
+let modalWrap = null;
 
 const showModal = async (title, id, callback) => {
   
@@ -126,31 +126,32 @@ const showModal = async (title, id, callback) => {
       
     enter.preventDefault();
 
-      const modalObj = new FormData(modalReserva);
+    let myModalEl = document.getElementById('modalSubscriptionForm');
+    let modal = bootstrap.Modal.getInstance(myModalEl);
+    modal.hide();
 
-      const idNoQuotation = id.replaceAll('"','');
-      console.log(idNoQuotation)
+    const modalObj = new FormData(modalReserva);
 
-      const bodyModal = {
-          "owner_name": modalObj.get('name'),
-          "owner_email": modalObj.get('email'),
-          "number_tickets": '1',
-          "event_id": idNoQuotation
-      }
+    const bodyModal = {
+        "owner_name": modalObj.get('name'),
+        "owner_email": modalObj.get('email'),
+        "number_tickets": '1',
+        "event_id": id
+    }
 
-      console.log(bodyModal)
+    console.log(bodyModal)
 
-      fetch("https://xp41-soundgarden-api.herokuapp.com/bookings", {
-        method: "POST",
-        headers: {
-            "Content-Type": "application/json"
-        },
-        body: JSON.stringify(bodyModal)
-      }).then(() => {
-          alert('Sua reserva foi feita com sucesso!')
-      }).catch(() => {
-          alert('ocorreu um erro ao fazer sua reserva')
-      })
+    fetch("https://xp41-soundgarden-api.herokuapp.com/bookings", {
+      method: "POST",
+      headers: {
+          "Content-Type": "application/json"
+      },
+      body: JSON.stringify(bodyModal)
+    }).then(() => {
+        alert('Sua reserva foi feita com sucesso!')
+    }).catch(() => {
+        alert('ocorreu um erro ao fazer sua reserva')
+    })
   })
 
 }
