@@ -4,7 +4,7 @@ let resquestOptions = {
 };
 
 const currentUrl = window.location.href;
-const id = currentUrl.slice(68);
+const id = currentUrl.slice(45);
 const link = 'https://xp41-soundgarden-api.herokuapp.com/events/' + id;
 
 window.onload = async () => {
