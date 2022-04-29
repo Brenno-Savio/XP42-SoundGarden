@@ -48,8 +48,6 @@ const onLoadDelete = async (log) => {
     document.querySelector("#data").value = dateNewValor;
     document.querySelector("#lotacao").value = ticketsNewValor;
 
-    console.log(nameImport)
-
 }
 
 const formCadastro = document.querySelector(".col-6");
@@ -75,19 +73,12 @@ formCadastro.addEventListener("submit", (enter) => {
         },
         body: JSON.stringify(body)
     })
-    .then( response => console.log(response))
-    .then(() => {
+    .then( () => {
+        window.location.replace("admin.html")
         alert('seu evento foi excluido com sucesso')
     })
-    .catch( error => console.error(error)
-    );
+    .catch(() => {
+        alert('ocorreu um erro ao excluir seu evento')
+        window.location.replace("admin.html")
+    });
 })
-
-
-// const testando = document.querySelector("#nome").value;
-// const newTestando = testando.replace(testando,'Brenno');
-// document.querySelector("#nome").value = newTestando;
-// console.log(newTestando)
-
-// let newName = name.replace('','Brenno')
-

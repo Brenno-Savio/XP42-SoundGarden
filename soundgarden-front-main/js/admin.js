@@ -1,5 +1,6 @@
 const tableSelector = document.querySelector(".table").children[1];
 
+
 function createElementsFromEvents(data){
     
     data.forEach((event, index) => {

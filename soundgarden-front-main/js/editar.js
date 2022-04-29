@@ -59,8 +59,17 @@ formCadastro.addEventListener("submit", (enter) => {
         },
         body: JSON.stringify(body)
     })
-    .then( response => console.log(response))
-    .catch( error => console.error(error)
+    // .then(() => {
+        
+    // })
+    .then(() => {
+        alert('seu evento foi alterado com sucesso!')
+        window.location.replace("admin.html")
+    })
+    .catch(() => {
+        alert('ocorreu um erro ao alterar seu evento')
+        window.location.replace("admin.html")
+    }
     );
 })    
 

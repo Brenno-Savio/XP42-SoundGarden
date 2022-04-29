@@ -25,5 +25,11 @@ formCadastro.addEventListener("submit", e => {
          "method": "POST",
          "headers": { "Content-Type": "application/JSON" },
          "body": JSON.stringify(body)
-    }).then( response => console.log(response)).catch( error => console.error(error));
+    }).then(() => {
+        alert('Seu Evento foi criado com sucesso!')
+        window.location.replace("admin.html")
+    }).catch(() => {
+        alert('ocorreu um erro ao criar seu evento')
+        window.location.replace("admin.html")
+    })
 });
