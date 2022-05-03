@@ -1,12 +1,8 @@
-
-let resquestOptions = {
-  method: 'GET',
-  redirect: 'follow'
-};
-
-
 window.onload = async () => {
-    const data = await fetch('https://xp41-soundgarden-api.herokuapp.com/events', resquestOptions)
+    const data = await fetch('https://xp41-soundgarden-api.herokuapp.com/events', {
+      method: 'GET',
+      redirect: 'follow'
+    })
         .then((res) => res.json())
         .catch(() => {
             alert('Ouve um erro na busca deste evento')
@@ -37,9 +33,6 @@ const createElementsFromEvents = async (data) => {
         const aElement = document.createElement('a');
         aElement.innerText = "reserver ingresso";
         aElement.classList.add('btn', 'btn-primary');
-        
-
-        // localStorage.setItem(nameData);
 
         aElement.addEventListener("click", () => {
             const aElementId = JSON.stringify(event._id);
@@ -117,7 +110,7 @@ const showModal = async (title, id, callback) => {
 
   document.body.append(modalWrap);
 
-  var modal = new bootstrap.Modal(modalWrap.querySelector('.modal'));
+  let modal = new bootstrap.Modal(modalWrap.querySelector('.modal'));
   modal.show();
 
   const modalReserva = document.querySelector('.modal-content');
@@ -155,18 +148,3 @@ const showModal = async (title, id, callback) => {
   })
 
 }
-
-
-
-
-// fetch('https://xp41-soundgarden-api.herokuapp.com/events', resquestOptions)
-//     .then(response => response.json())
-//     .then(data => createElementsFromEvents(data))
-//     .catch(error => console.log(error)
-// );
-
-// <!-- Message input -->
-// <div class="form-outline mb-4">
-//   <textarea class="form-control" id="form4Example3" rows="4"></textarea>
-//   <label class="form-label" for="form4Example3">Message</label>
-// </div>

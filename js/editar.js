@@ -1,16 +1,15 @@
-let resquestOptions = {
-    method: 'GET',
-    redirect: 'follow'
-};
-
-const currentUrl = window.location.href;
-const id = currentUrl.slice(67);
+const params = new URLSearchParams(window.location.search);
+const idObject = params.getAll('id');
+const id = idObject.toString();
 const link = 'https://xp41-soundgarden-api.herokuapp.com/events/' + id;
 
 
 
 window.onload = async () => {
-    const data = await fetch(link, resquestOptions)
+    const data = await fetch(link, {
+        method: 'GET',
+        redirect: 'follow'
+    })
         .then((res) => res.json())
         .catch(() => {
             alert('Ouve um erro na busca deste evento')

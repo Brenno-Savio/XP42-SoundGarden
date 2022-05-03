@@ -43,6 +43,7 @@ function createElementsFromEvents(data){
         secondAnchor.innerText = "editar";
         secondAnchor.classList.add('btn', 'btn-secondary');
         secondAnchor.href = 'editar-evento.html?id=' + id; 
+        console.log(secondAnchor)
 
         const thirdAnchor = document.createElement('a');
         thirdAnchor.innerText = "excluir";
@@ -58,19 +59,20 @@ function createElementsFromEvents(data){
     })
 }
 
-let resquestOptions = {
+
+
+fetch('https://xp41-soundgarden-api.herokuapp.com/events', {
     method: 'GET',
     redirect: 'follow'
-};
-
-fetch('https://xp41-soundgarden-api.herokuapp.com/events', resquestOptions)
+    })
     .then(response => response.json())
     .then(data => createElementsFromEvents(data))
     .catch(error => console.log(error)
 );
 
-let modalWrap = null;
 
+
+let modalWrap = null;
 
 const showModal = async (dataRequisition) => {
 
@@ -78,6 +80,8 @@ const showModal = async (dataRequisition) => {
     const del = /"/g;
     const title = titleData.replace(del,'');
   
+
+
     if (modalWrap !== null) {
         modalWrap.remove();
     }
@@ -122,6 +126,8 @@ const showModal = async (dataRequisition) => {
 
     const tableSelectorResponse = document.querySelector("#response-table").children[1];
 
+
+
     dataRequisition.forEach((event, index) => {
         
         const trElement = document.createElement('tr');
@@ -145,17 +151,3 @@ const showModal = async (dataRequisition) => {
     })
 
 }
-
-// const modalAsideBtn = document.querySelector(".modal-button");
-// const asideModal = document.getElementById("modal-aside");
-
-// console.log(asideModal)
-
-// modalAsideBtn.addEventListener('click', () => {
-//     asideModal.style.display = 'block !important';
-// });
-
-
-    
-
-
